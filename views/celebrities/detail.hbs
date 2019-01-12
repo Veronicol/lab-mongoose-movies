@@ -18,13 +18,12 @@
   </thead>
 
   <tbody>
-    {{#each celebrity as |celebrity| }}
       <tr>
         <td>{{ celebrity.name }}</td>
         <td>{{ celebrity.occupation }}</td>
         <td>{{ celebrity.catchPhrase }}</td>
         <td><a href="/celebrities/{{celebrity._id}}/edit">Edit</a></td> 
+        <td><a href="/celebrities/{{celebrity._id}}/delete">Delete</a></td> 
       </tr>
-    {{/each}}
   </tbody>
 </table>
