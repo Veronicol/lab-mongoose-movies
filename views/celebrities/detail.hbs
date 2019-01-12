@@ -1,0 +1,30 @@
+{{!-- <h1>{{ celebrity.name }}</h1>
+
+<a href="/celebrities">Back to list</a>
+
+<form action="/celebrities/{{celebrity._id}}/delete" method="post">
+  <button type="submit">Delete</button>
+</form> --}}
+
+<a class="btn btn-primary mb-3" href="/celebrities/create">New Celebrity</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Occupation</th>
+      <th>Phrase</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each celebrity as |celebrity| }}
+      <tr>
+        <td>{{ celebrity.name }}</td>
+        <td>{{ celebrity.occupation }}</td>
+        <td>{{ celebrity.catchPhrase }}</td>
+        <td><a href="/celebrities/{{celebrity._id}}/edit">Edit</a></td> 
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

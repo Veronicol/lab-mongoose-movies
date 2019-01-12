@@ -26,3 +26,4 @@ module.exports.delete = (req, res, next) => {
   Celebrity.findByIdAndDelete(req.params.id)
     .then(celebrity => res.redirect('/celebrities'));
 }
+

@@ -8,6 +8,9 @@ router.get('/create', moviesController.create)
 
 router.post('/create', moviesController.doCreate)
 
+// router.get('/:id/edit', moviesController.edit)
+// router.post('/:id', moviesController.doEdit)
+
 router.get('/:id', moviesController.get)
 router.post('/:id/delete', moviesController.delete)
 
