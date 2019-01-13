@@ -1,0 +1,7 @@
+<h2 class="m-3">List of movies:</h2>
+<ul>
+  {{#each movies as |movie| }}
+    <li class="list-item"> {{ movie.title }} <a class="ml-3" href="/movies/{{ movie._id }}"><em>See detail</em></a></li>
+  {{/each }}
+</ul>
+<a href="/movies/create">New Movie</a>

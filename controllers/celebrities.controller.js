@@ -7,7 +7,9 @@ module.exports.list = (req, res, next) => {
 }
 
 module.exports.create = (req, res, next) => {
-  res.render('celebrities/create');
+  const celebrity = new Celebrity();
+
+  res.render('celebrities/form', { celebrity });
 }
 
 module.exports.doCreate = (req, res, next) => {
@@ -16,14 +18,29 @@ module.exports.doCreate = (req, res, next) => {
   celebrity.save()
     .then((celebrity) => { res.redirect('/celebrities' )});
 }
+module.exports.doEdit = (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrity) => {
+      celebrity.set(req.body);
+
+      celebrity.save()
+        .then((celebrity) => { res.redirect('/celebrities' )});
+    })
+}
+
+module.exports.edit = (req, res, next) => {
+  Celebrity.findById(req.params.id)
+    .then(celebrity => res.render('celebrities/form', { celebrity }));
+}
 
 module.exports.get = (req, res, next) => {
   Celebrity.findById(req.params.id)
     .then(celebrity => res.render('celebrities/detail', { celebrity }));
 }
 
+
 module.exports.delete = (req, res, next) => {
   Celebrity.findByIdAndDelete(req.params.id)
-    .then(celebrity => res.redirect('/celebrities'));
+    .then(() => res.redirect('/celebrities'));
 }
 

@@ -10,6 +10,10 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  celebrity: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Celebrity',
+  },
   plot: {
     type: String,
   }
@@ -18,3 +22,4 @@ const schema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Movie', schema);
+

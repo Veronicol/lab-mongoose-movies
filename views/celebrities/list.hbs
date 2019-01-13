@@ -1,7 +1,7 @@
-<a href="/celebrities/create">New Celebrity</a>
-
+<h2 class="m-3">List of celebrities:</h2>
 <ul>
   {{#each celebrities as |celebrity| }}
-    <li> {{ celebrity.name }} <a href="/celebrities/{{ celebrity._id }}">Ver</a></li>
+    <li class="list-item"> {{ celebrity.name }} <a class="ml-3" href="/celebrities/{{ celebrity._id }}"><em>See detail</em></a></li>
   {{/each }}
 </ul>
+<a href="/celebrities/create">New Celebrity</a>
