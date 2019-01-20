@@ -44,11 +44,8 @@ module.exports.edit = (req, res, next) => {
 
 module.exports.get = (req, res, next) => {
   Movie.findById(req.params.id)
-    .then(movie => {
-      
-      Celebrity.findById(movie.celebrity)
-      .then((celebrity) => {res.render('movies/detail', { movie, celebrity })})
-    });
+    .populate('celebrity')
+    .then(movie => res.render('movies/detail', {movie}));
 }
 
 module.exports.delete = (req, res, next) => {

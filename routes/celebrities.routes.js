@@ -14,6 +14,4 @@ router.post('/:id/edit', celebritiesController.doEdit)
 router.get('/:id', celebritiesController.get)
 router.get('/:id/delete', celebritiesController.delete)
 
-
-
 module.exports = router;
